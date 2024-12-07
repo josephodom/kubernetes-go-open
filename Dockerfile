@@ -1,14 +1,13 @@
 # syntax=docker/dockerfile:1
-FROM golang:1.23
+FROM golang:1.23-alpine
 WORKDIR /
 
 COPY src/ .
 
-# RUN go mod init github.com/josephodom/kubernetes-go-open
-COPY go.mod .
+RUN go mod init github.com/josephodom/kubernetes-go-open
 
 RUN go build -o /bin/main main.go
 
-FROM scratch
+FROM golang:1.23-alpine
 COPY --from=0 /bin/main /bin/main
 CMD ["/bin/main"]

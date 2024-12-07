@@ -10,6 +10,7 @@ func main() {
 	fmt.Println("Hello, World!")
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Add("Content-Type", "application/json")
 		fmt.Fprintf(w, `{"message":"Hello, World!"}`)
 	})
 

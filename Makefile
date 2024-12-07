@@ -8,4 +8,4 @@ build:
 
 .PHONY=docker
 docker:
-	docker build -t ejosephodom/go-open:latest .
+	docker build -t ejosephodom/go-open:latest . && docker push ejosephodom/go-open:latest
