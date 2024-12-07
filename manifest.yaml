@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-open
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-open
+  template:
+    metadata:
+      labels:
+        app: go-open
+    spec:
+      containers:
+      - name: go-open
+        image: ejosephodom/go-open:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
