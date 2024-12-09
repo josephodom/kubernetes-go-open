@@ -5,6 +5,7 @@ WORKDIR /
 COPY src/ .
 
 RUN go mod init github.com/josephodom/kubernetes-go-open
+RUN go get github.com/redis/go-redis/v9
 
 RUN go build -o /bin/main main.go
 
